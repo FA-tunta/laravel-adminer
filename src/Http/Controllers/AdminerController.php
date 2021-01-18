@@ -12,7 +12,7 @@ class AdminerController extends Controller
     public function __construct()
     {
         // add custom middleware to restrict access permission
-        $this->middleware('adminer');
+        $this->middleware(config('adminer.middleware'));
 
         // adminer version
         $this->version = '4.7.8';

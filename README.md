@@ -40,29 +40,6 @@ Update `config/app.php`
 ];
 ```
 
-## Setup Access Permission
-
-### Laravel 5.2 and above
-
-Setup for middleware group supported for Laravel 5.2 above
-
-Modify `app/Http/Kernel.php` file with adminer in `$middlewareGroups`
-
-```php
-protected $middlewareGroups = [
-    ...
-    'adminer' => [
-        \App\Http\Middleware\EncryptCookies::class,
-        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        \Illuminate\Session\Middleware\StartSession::class,
-
-        // you may create customized middleware to fit your needs
-        // example uses Laravel default authentication (default protection)
-        \Illuminate\Auth\Middleware\Authenticate::class,
-    ],
-];
-```
-
 ## Publish config and theme file
 
 ```
@@ -84,6 +61,7 @@ If you only want to config autologin feature, you may just add below content to 
 return [
     'autologin' => false,
     'route_prefix' => 'adminer',
+    'middleware' => ['web'],
 ]
 ```
 
